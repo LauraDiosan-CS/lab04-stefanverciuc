@@ -2,6 +2,7 @@
 #include "Repo.h"
 #include <assert.h>
 #include <iostream>
+#include "service.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ void test()
     int pret=23;
     Produs p(nume, data, pret);
     Produs q(nume1, data, pret);
-    Produs k;
+    
     Repo r;
     r.addProdus(p);
     //r.addProdus(p);
@@ -28,8 +29,29 @@ void test()
     r.delete_produs(1);
     
     assert(r.size() == 0);
+
+
+    //test service
+    Repo k;
+    Service s(k);
+    
+    s.addProdus(nume1,data,pret);
+    
+    assert(s.size() == 1);
+    a = s.getAll();
+    assert(a[0] == q);
+
+    s.modificare(1, nume, data, pret);
+    a = s.getAll();
+    assert(a[0] == p);
+
+    s.delete_produs(1);
+    assert(s.size() == 0);
+
+
+
     cout << "Run test"<<'\n';
+}
     
 
 
-}

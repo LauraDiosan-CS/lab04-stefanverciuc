@@ -11,7 +11,7 @@ public:
 	Produs();
 	Produs(char* name, int data,int pret);
 	Produs(const Produs& s);
-	//~Produs();
+	~Produs();
 	char* getNume();
 	int getData();
 	int getPret();

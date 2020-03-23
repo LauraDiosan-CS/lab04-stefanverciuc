@@ -7,7 +7,7 @@ private:
 	int n;
 public:
 	Repo();
-	//~Repo();
+	~Repo();
 	void addProdus(Produs s);
 	int size();
 	Produs* getAll();

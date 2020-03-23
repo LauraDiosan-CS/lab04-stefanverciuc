@@ -26,13 +26,13 @@ Produs::Produs(const Produs& s) {
 	this->pret = s.pret;
 }
 
-/*Produs::~Produs() {
+Produs::~Produs() {
 	if (this->nume) 
 	{	
 		delete[] this->nume;
 		this->nume = NULL;
 	}
-}*/
+}
 
 char* Produs::getNume() {
 	return this->nume;
@@ -51,6 +51,8 @@ void Produs::setNume(char* nume)
 {
 	if (this->nume) {
 		delete[] this->nume;
+		this->nume = NULL;
+		//delete this->nume;
 	}
 	if (nume)
 	{

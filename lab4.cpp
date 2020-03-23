@@ -4,6 +4,7 @@
 #include "test.h"
 #include "produs.h"
 #include "Repo.h"
+#include "service.h"
 
 using namespace std;
 
@@ -16,11 +17,13 @@ int main()
 
     
     Repo r;
+    Service s(r);
+    
     int i = 1;
 
     while (i)
     {
-        std::cout << "Scrie 1 pentru citire,2 afisare,3 pntru stergere,4 pentru modificare, 0 exit: ";
+        std::cout << "Scrie 1 pentru citire,2 afisare,3 pentru modificare,4 pentru stergere, 0 exit: ";
         std::cin >> i;
         if (i == 1)
         {
@@ -40,29 +43,32 @@ int main()
                 std::cin >> data;
                 std::cout << "Dati pret ";
                 std::cin >> pret;
-                Produs p(nume, data, pret);
-                
-                r.addProdus(p);
+                s.addProdus(nume, data, pret);
             }
         }
         if (i == 2)
         {
             Produs* lista;
-            lista = r.getAll();
-            int n = r.size();
+            lista = s.getAll();
+            int n = s.size();
             for (int i = 0; i < n; i++)
                 std::cout << lista[i] << " ";
             std::cout << '\n';
         }
-        if (i == 3)
+        if (i == 4)
         {
+            
+            
             int j;
-            cout << "Ce produs stergi?";
+            
+            cout << "Date produs stergi?";
             cin >> j;
-            r.delete_produs(j);
+            
+            
+            s.delete_produs(j);
 
         }
-        if (i == 4)
+        if (i == 3)
         {
             int j;
             char nume[100];
@@ -76,8 +82,7 @@ int main()
             cin >> data;
             cout << "Pret ";
             cin >> pret;
-            Produs p(nume, data, pret);
-            r.modificare(j,p);
+            s.modificare(j,nume,data,pret);
         }
     }
 

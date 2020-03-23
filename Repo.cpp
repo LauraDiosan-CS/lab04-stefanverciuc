@@ -4,9 +4,9 @@ Repo::Repo() {
 	this->n = 0;
 }
 
-/*Repo::~Repo() {
+Repo::~Repo() {
 	this->n = 0;
-}*/
+}
 
 void Repo::addProdus(Produs s) {
 	this->produse[this->n++] = s;
@@ -25,9 +25,13 @@ void Repo::delete_produs(int i){
 	Produs* p;
 	p = this->produse;
 	i--;
+	
+	if(i>=0 and i<m)
+	{ 
 	for (i; i < m; i++)
 		p[i] = p[i + 1];
 	this->n--;
+	}
 
 	
 }
